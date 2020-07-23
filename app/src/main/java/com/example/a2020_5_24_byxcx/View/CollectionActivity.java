@@ -24,6 +24,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.a2020_5_24_byxcx.Base.Collection_Dialog;
+import com.example.a2020_5_24_byxcx.Base.DialogOnClickListener;
 import com.example.a2020_5_24_byxcx.Modle.Adapter.CollectionAdapter;
 import com.example.a2020_5_24_byxcx.Modle.Adapter.MyRecyclerViewDivider;
 import com.example.a2020_5_24_byxcx.Modle.Dao.NewsDBUtils;
@@ -42,6 +43,7 @@ public class CollectionActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private Toolbar toolbar;
     private CollectionAdapter adapter;
+    private Collection_Dialog dialog;
 
     private List<NewsModle> newsModles = new ArrayList<>();
 
@@ -89,7 +91,25 @@ public class CollectionActivity extends BaseActivity {
                                         break;
                                     case R.id.collection_img:
                                         Log.d(TAG, "click: " + "点击显示更多");
-                                        new Collection_Dialog(CollectionActivity.this).show();
+                                        dialog = new Collection_Dialog(CollectionActivity.this);
+                                        dialog.setListener(new DialogOnClickListener() {
+                                            @Override
+                                            public void onclick(View view) {
+                                                if (dbUtils.deleteNewsModle(newsModleList.get(i))) {
+                                                    dialog_dismiss();
+                                                    Toast.makeText(CollectionActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    dialog_dismiss();
+                                                    Toast.makeText(CollectionActivity.this, "删除失败", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void dialog_dismiss() {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                        dialog.show();
                                         break;
                                 }
                             }

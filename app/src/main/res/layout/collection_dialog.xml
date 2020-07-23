@@ -12,15 +12,27 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/collection_dialog_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            style="@style/text_style2"
+            android:padding="10dp"
             android:text="删除" />
 
         <TextView
             android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:enabled="false"
+            android:background="@color/color_hui" />
+
+        <TextView
+            android:id="@+id/collection_dialog_dismiss"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="10dp"
+            style="@style/text_style2"
             android:text="取消" />
 
 

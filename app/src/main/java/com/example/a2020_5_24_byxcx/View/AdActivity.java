@@ -120,6 +120,7 @@ public class AdActivity extends BaseActivity {
                     public void accept(Throwable throwable) throws Exception {
                         //如果在请求错误
                         Log.d(TAG, "accept: 请求api数据错误开始动画");
+                        Log.e(TAG, "accept: ", throwable);
                         startAnimator();
                     }
                 }));
