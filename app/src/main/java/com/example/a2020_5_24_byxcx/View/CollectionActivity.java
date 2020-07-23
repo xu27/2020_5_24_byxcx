@@ -23,6 +23,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.a2020_5_24_byxcx.Base.Collection_Dialog;
 import com.example.a2020_5_24_byxcx.Modle.Adapter.CollectionAdapter;
 import com.example.a2020_5_24_byxcx.Modle.Adapter.MyRecyclerViewDivider;
 import com.example.a2020_5_24_byxcx.Modle.Dao.NewsDBUtils;
@@ -88,7 +89,7 @@ public class CollectionActivity extends BaseActivity {
                                         break;
                                     case R.id.collection_img:
                                         Log.d(TAG, "click: " + "点击显示更多");
-                                        Toast.makeText(CollectionActivity.this, "11111111111111111111", Toast.LENGTH_SHORT).show();
+                                        new Collection_Dialog(CollectionActivity.this).show();
                                         break;
                                 }
                             }

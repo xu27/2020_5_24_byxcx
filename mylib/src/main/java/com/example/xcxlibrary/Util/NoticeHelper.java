@@ -17,20 +17,23 @@ import androidx.core.content.ContextCompat;
 
 public class NoticeHelper {
 
+
+    public final String NAME = "my_channel_01";
+    public final String NAME_ID = "my_channel_01";
+
+
     public NoticeHelper() {
     }
 
-    public  void suspension_notice(Context context, int icon, String title, String value,PendingIntent intent){
+    public void suspension_notice(Context context, int icon, String title, String value, PendingIntent intent) {
         NotificationManager manager;
         manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        String id = "XCX"+System.currentTimeMillis();
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,id);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NAME_ID);
         //构造安卓8.0Channel
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            addChannel(manager,id);
+            addChannel(manager, NAME_ID);
         }
         //加入默认操作
-        builder.setWhen(System.currentTimeMillis());
         builder.setSmallIcon(icon);
         builder.setAutoCancel(true);
         builder.setContentTitle(title);
@@ -46,9 +49,13 @@ public class NoticeHelper {
     }
 
     @TargetApi(Build.VERSION_CODES.O)
-    public void addChannel(NotificationManager manager,String id){
-        NotificationChannel channel = new NotificationChannel(id,"my_channel_01",manager.IMPORTANCE_HIGH);
+    public void addChannel(NotificationManager manager,String id) {
+        NotificationChannel channel = manager.getNotificationChannel(NAME_ID);
+        if (channel != null) {
+            channel = new NotificationChannel(id, NAME, manager.IMPORTANCE_HIGH);
+        }
         channel.setShowBadge(true);
         manager.createNotificationChannel(channel);
     }
+
 }
