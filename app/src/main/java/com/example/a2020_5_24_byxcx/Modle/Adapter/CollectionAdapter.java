@@ -47,6 +47,7 @@ public class CollectionAdapter extends RecyclerView.Adapter implements View.OnCl
         Log.d(TAG, "onBindViewHolder: ");
         CollectionViewHolder viewHolder = (CollectionViewHolder) holder;
         viewHolder.title.setTag(position);
+        viewHolder.right.setTag(position);
         viewHolder.title.setText(data.get(position).getTitle());
         viewHolder.source.setText(data.get(position).getSource());
         viewHolder.right.setOnClickListener(this);

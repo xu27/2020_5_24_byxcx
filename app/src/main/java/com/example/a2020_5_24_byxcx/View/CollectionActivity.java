@@ -88,6 +88,7 @@ public class CollectionActivity extends BaseActivity {
                                         break;
                                     case R.id.collection_img:
                                         Log.d(TAG, "click: " + "点击显示更多");
+                                        Toast.makeText(CollectionActivity.this, "11111111111111111111", Toast.LENGTH_SHORT).show();
                                         break;
                                 }
                             }

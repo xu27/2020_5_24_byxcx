@@ -271,7 +271,7 @@ public class MainActivity extends BaseActivity implements My_2020_5_24Byxcx.Main
             Log.d(TAG, "islogin: " + lastLoginTime);
             long now = System.currentTimeMillis();
             Log.d(TAG, "islogin: " + now);
-            if ((now - lastLoginTime) > 700 * 60 * 10) {
+            if ((now - lastLoginTime) > 700 * 60 * 60) {
                 SharePrenceUtil.saveInt(this, "login", 0);
                 new LoginDialog(this).show();
             }
