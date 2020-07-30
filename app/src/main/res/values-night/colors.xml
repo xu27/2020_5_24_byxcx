@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#CF473E</color>
+    <color name="colorPrimaryDark">#F2F2F7</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white_color">#FCFCFC</color>
+    <color name="red_color">#FC0033</color>
+    <color name="tool_color">#1B1A1A</color>
+    <color name="tab_color">#1B1A1A</color>
+    <color name="tab_text_color">#FCFCFC</color>
+    <color name="top_color">#000000</color>
+    <color name="icon1_color">#FC0033</color>
+    <color name="icon2_color">#FFFFFF</color>
+    <color name="wb_color">#000000</color>
+    <color name="wg_color">#333333</color>
+    <color name="bw_color">#FFFFFF</color>
+    <color name="text_color">#F2F2F7</color>
+    <color name="Secondary_text_color">#979797</color>
+    <color name="no_color">#979797</color>
+    <color name="no_color2">#1B1A1A</color>
+    <color name="black_color">#000000</color>
+    <color name="color_hui">#999999</color>
+    <color name="color_bule">#0089ff</color>
+
+</resources>
