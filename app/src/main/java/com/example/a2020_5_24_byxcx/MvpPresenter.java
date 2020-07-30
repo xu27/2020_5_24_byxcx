@@ -3,10 +3,12 @@ package com.example.a2020_5_24_byxcx;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.a2020_5_24_byxcx.Base.LoginDialog;
 import com.example.a2020_5_24_byxcx.Modle.Events.DataType;
 import com.example.a2020_5_24_byxcx.Modle.MyMainModle;
 import com.example.a2020_5_24_byxcx.Modle.News_JAVAbean.Base_Bean;
 import com.example.xcxlibrary.Util.NetUtil;
+import com.example.xcxlibrary.Util.SharePrenceUtil;
 import com.example.xcxlibrary.bean.Videobaen;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -39,7 +41,7 @@ public class MvpPresenter implements My_2020_5_24Byxcx.PresenterMain {
 
     @Override
     public void updata(String type, int start) {
-        if(NetUtil.isNetworkAvalible(context)) {
+        if (NetUtil.isNetworkAvalible(context)) {
             modle.getHttpData(type, start, new My_2020_5_24Byxcx.MainModle.HttpCallBack() {
                 @Override
                 public void onSuccess(Object baseBean) {
@@ -60,7 +62,7 @@ public class MvpPresenter implements My_2020_5_24Byxcx.PresenterMain {
                     }
                 }
             }, context);
-        }else {
+        } else {
             modle.getcacheDate(context, type, new My_2020_5_24Byxcx.MainModle.HttpCallBack() {
                 @Override
                 public void onSuccess(Object baseBean) {
@@ -89,15 +91,34 @@ public class MvpPresenter implements My_2020_5_24Byxcx.PresenterMain {
         modle.getHttpVideo(start, new My_2020_5_24Byxcx.MainModle.HttpCallBack() {
             @Override
             public void onSuccess(Object bean) {
-                main.sendVideo((Videobaen) bean,start+10);
+                main.sendVideo((Videobaen) bean, start + 10);
             }
 
             @Override
             public void onFilure(String msg) {
-                Log.d(TAG, "onFilure: "+msg);
+                Log.d(TAG, "onFilure: " + msg);
                 main.senderr(DataType.EER_VIDEO);
             }
-        },context);
+        }, context);
+    }
+
+    @Override
+    public void islogin() {
+        if (SharePrenceUtil.getInt(context, "login") == 1) {
+            //登陆成功
+            //判断超时
+            Long lastLoginTime = SharePrenceUtil.getLong(context, "lastLogonTime");
+            Log.d(TAG, "islogin: " + lastLoginTime);
+            long now = System.currentTimeMillis();
+            Log.d(TAG, "islogin: " + now);
+            if ((now - lastLoginTime) > 700 * 60 * 60 * 24) {
+                SharePrenceUtil.saveInt(context, "login", 0);
+                new LoginDialog(context).show();
+            }
+        } else {
+            //登陆失败
+            new LoginDialog(context).show();
+        }
     }
 
     /**

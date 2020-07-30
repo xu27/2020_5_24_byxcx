@@ -48,10 +48,12 @@ public interface My_2020_5_24Byxcx {
         public void deachView();
 
         //更新数据
-        public void updata(String type,int start);
+        public void updata(String type, int start);
 
         //更新视频
         public void upVideo(int start);
+
+        public void islogin();
 
     }
 

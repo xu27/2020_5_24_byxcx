@@ -16,6 +16,7 @@
         app:tabGravity="fill"
         app:tabSelectedTextColor="@color/red_color"
         app:tabTextColor="@color/no_color"
+        android:background="@color/tab_color"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +24,7 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="35dp"
+        android:background="@color/tab_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline2"
         android:src="@drawable/ic_tab_set"
@@ -41,7 +43,7 @@
             android:id="@+id/news_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#E8EBEB"
+            android:background="@color/wg_color"
             />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -212,7 +212,7 @@ public class MainActivity extends BaseActivity implements My_2020_5_24Byxcx.Main
             Window window = this.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.red_color));
+            window.setStatusBarColor(this.getResources().getColor(R.color.top_color));
         }
     }
 
@@ -264,20 +264,6 @@ public class MainActivity extends BaseActivity implements My_2020_5_24Byxcx.Main
     }
 
     private void islogin() {
-        if (SharePrenceUtil.getInt(this, "login") == 1) {
-            //登陆成功
-            //判断超时
-            Long lastLoginTime = SharePrenceUtil.getLong(this, "lastLogonTime");
-            Log.d(TAG, "islogin: " + lastLoginTime);
-            long now = System.currentTimeMillis();
-            Log.d(TAG, "islogin: " + now);
-            if ((now - lastLoginTime) > 700 * 60 * 60) {
-                SharePrenceUtil.saveInt(this, "login", 0);
-                new LoginDialog(this).show();
-            }
-        } else {
-            //登陆失败
-            new LoginDialog(this).show();
-        }
+        presenter.islogin();
     }
 }

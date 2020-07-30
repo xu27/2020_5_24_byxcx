@@ -72,13 +72,13 @@
     </style>
 
     <style name="ToolbarTitleba" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textColor">#F44336</item>
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">20sp</item>
     </style>
 
     <style name="text_style1">
         <item name="android:textSize">10sp</item>
-        <item name="android:textColor">@color/no_color</item>
+        <item name="android:textColor">@color/Secondary_text_color</item>
     </style>
 
     <style name="text_style2">
