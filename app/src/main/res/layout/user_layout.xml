@@ -3,13 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/wg_color">
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/user_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:headerLayout="@layout/user_header"/>
+        android:background="@color/wb_color"
+        app:headerLayout="@layout/user_header" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/user_menu"
@@ -17,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:menu="@menu/user_header_menu"
+        app:itemTextColor="@color/text_color"
         android:background="@drawable/user_header_style"/>
 
 

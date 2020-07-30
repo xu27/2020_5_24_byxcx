@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.CollectionActivity">
+    tools:context=".View.CollectionActivity"
+    android:background="@color/wg_color">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/collection_toolbar"

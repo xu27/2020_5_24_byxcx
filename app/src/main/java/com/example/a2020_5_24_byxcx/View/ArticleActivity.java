@@ -318,6 +318,7 @@ public class ArticleActivity extends BaseActivity {
         TextView textView = (TextView) LayoutInflater.from(ArticleActivity.this).inflate(R.layout.article_content_item, article_content, false);
         textView.setText("\u3000\u3000" + text);
         textView.setAlpha(.1f);
+        textView.setTextColor(getColor(R.color.text_color));
         article_content.addView(textView);
         textView.animate().alpha(1).start();
     }

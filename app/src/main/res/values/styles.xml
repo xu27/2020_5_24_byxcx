@@ -38,15 +38,16 @@
     </style>
 
     <style name="MyToolTheme" parent="Widget.MaterialComponents.Toolbar">
-        <item name="android:background">@color/white_color</item>
+        <item name="android:background">@color/icon1_color</item>
         <!-- 修改字体大小 -->
         <item name="android:textSize">15sp</item>
         <!-- 修改字体颜色 -->
-        <item name="android:textColor">#fff</item>
+        <item name="android:textColor">@color/text_color</item>
         <!-- 修改toolbar图标的颜色-->
-        <item name="android:textColorSecondary">#ffffff</item>
-        <!--修改toolbar文字颜色-->
-        <item name="android:textColorPrimary">@color/black_color</item>
+        <!--<item name="android:textColorSecondary">@color/text_color</item>
+        <item name="titleTextColor">@color/text_color</item>-->
+        <!--修改toolbar文字颜色
+        <item name="android:textColorPrimary">@color/black_color</item>-->
         <!--设置弹出菜单风格-->
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
     </style>
@@ -83,7 +84,7 @@
 
     <style name="text_style2">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/black_color</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:lineSpacingMultiplier">1.5</item>
     </style>
 
@@ -104,12 +105,12 @@
     </style>
     <style name="text_style5">
         <item name="android:textSize">25sp</item>
-        <item name="android:textColor">@color/black_color</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
 
     <style name="text_style6">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/black_color</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
     <style name="text_style7">
         <item name="android:textSize">18sp</item>

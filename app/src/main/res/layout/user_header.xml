@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="@color/black_color"
+        android:textColor="@color/text_color"
         android:text="@string/user_title"
         android:layout_gravity="center_horizontal"
         />

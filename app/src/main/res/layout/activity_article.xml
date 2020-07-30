@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="@color/wg_color">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -70,6 +71,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:textSize="25sp"
                     android:textStyle="bold"
+                    android:textColor="@color/text_color"
                     android:transitionName="@string/news_title"
                     tools:text="做好掏钱的准备了吗？微软XboxSeriesX官网上线购买页面" />
 
@@ -130,7 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="#FFFFFF"
+        android:background="@color/wb_color"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_behavior="com.example.a2020_5_24_byxcx.Modle.Behavior.MyBehavior"

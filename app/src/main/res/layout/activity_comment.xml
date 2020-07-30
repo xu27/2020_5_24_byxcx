@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.CommentActivity">
+    tools:context=".View.CommentActivity"
+    android:background="@color/wg_color">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/comment_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/ic_back_write"
+        android:background="@color/icon1_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
