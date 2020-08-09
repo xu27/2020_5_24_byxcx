@@ -22,7 +22,7 @@
             android:background="@color/white_color"
             app:layout_scrollFlags="scroll"
             app:navigationIcon="@drawable/ic_back_write"
-            app:title="注册">
+            app:title="登陆">
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -42,19 +42,113 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintVertical_bias="0.0">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="100dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login2_layout_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="visible"
+                app:errorEnabled="true"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/login2_layout_phone"
+                app:layout_constraintStart_toStartOf="@+id/login2_layout_phone"
+                app:layout_constraintTop_toBottomOf="@+id/login2_layout_phone">
+
+                <EditText
+                    android:id="@+id/login2_password"
+                    android:enabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:alpha="0"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login2_layout_yanzhengma"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:hintEnabled="false"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toStartOf="@+id/login2_get_yanzheng"
+                app:layout_constraintStart_toStartOf="@+id/login2_layout_phone"
+                app:layout_constraintTop_toBottomOf="@+id/login2_layout_phone">
+
+                <EditText
+                    android:id="@+id/login2_yanzhengma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="获取验证码"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/login2_get_yanzheng"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:gravity="center"
-                android:text="由于无法申请到手机短信验证api所以该注册页面暂时不写\n理解一下，没办法，是这样\n李姐的朋友，把100分打在我成绩上"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:padding="10dp"
+                android:text="获取验证码"
+                android:background="@drawable/yanzhengma_but"
+                android:textColor="@color/text_color"
+                app:layout_constraintBottom_toBottomOf="@+id/login2_layout_yanzhengma"
+                app:layout_constraintEnd_toEndOf="@+id/login2_layout_phone"
+                app:layout_constraintTop_toTopOf="@+id/login2_layout_yanzhengma"
+                tools:visibility="visible" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login2_layout_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/login2_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入手机号码"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="16dp"
+                android:text="登陆"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login2_layout_phone" />
+
+            <TextView
+                android:id="@+id/login2_switchingmode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="账号密码登陆"
+                app:layout_constraintEnd_toEndOf="@+id/login"
+                app:layout_constraintStart_toStartOf="@+id/login"
+                app:layout_constraintTop_toBottomOf="@+id/login" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

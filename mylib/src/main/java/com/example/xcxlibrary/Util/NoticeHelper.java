@@ -50,10 +50,7 @@ public class NoticeHelper {
 
     @TargetApi(Build.VERSION_CODES.O)
     public void addChannel(NotificationManager manager,String id) {
-        NotificationChannel channel = manager.getNotificationChannel(NAME_ID);
-        if (channel != null) {
-            channel = new NotificationChannel(id, NAME, manager.IMPORTANCE_HIGH);
-        }
+        NotificationChannel channel = new NotificationChannel(id, NAME, manager.IMPORTANCE_HIGH);
         channel.setShowBadge(true);
         manager.createNotificationChannel(channel);
     }

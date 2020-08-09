@@ -26,7 +26,7 @@ class MsgReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "onReceive: ");
-        switch (intent.getAction()) {
+        /*switch (intent.getAction()) {
             case Intent.ACTION_BOOT_COMPLETED:
                 Log.d(TAG, "开机");
                 break;
@@ -42,20 +42,20 @@ class MsgReceiver extends BroadcastReceiver {
             case Intent.ACTION_USER_PRESENT:
                 Log.d(TAG, "手机解锁");
                 break;
-            case "location.reportsucc":
-                Bean_item item = intent.getParcelableExtra("key");
-                Intent intent1 = new Intent(context.getApplicationContext(), ArticleActivity.class);
-                        intent1.putExtra("url", item.getUrl());
-                        intent1.putExtra("source", item.getSource());
-                        intent1.putExtra("img", item.getImgsrc());
-                        intent1.putExtra("title",item.getTitle());
-                        intent1.putExtra("id", item.getDocid());
-                        //intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), (int) System.currentTimeMillis(), intent1, PendingIntent.FLAG_ONE_SHOT);
-                        NoticeHelper noticeHelper = new NoticeHelper();
-                        noticeHelper.suspension_notice(context, R.drawable.video_backward_icon,
-                                item.getSource(),item.getTitle(),pendingIntent);
-                break;
-        }
+            case "location.reportsucc":*/
+        Bean_item item = intent.getParcelableExtra("key");
+        Intent intent1 = new Intent(context.getApplicationContext(), ArticleActivity.class);
+        intent1.putExtra("url", item.getUrl());
+        intent1.putExtra("source", item.getSource());
+        intent1.putExtra("img", item.getImgsrc());
+        intent1.putExtra("title", item.getTitle());
+        intent1.putExtra("id", item.getDocid());
+        //intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), (int) System.currentTimeMillis(), intent1, PendingIntent.FLAG_ONE_SHOT);
+        NoticeHelper noticeHelper = new NoticeHelper();
+        noticeHelper.suspension_notice(context, R.drawable.video_backward_icon,
+                item.getSource(), item.getTitle(), pendingIntent);
+                /*break;
+        }*/
     }
 }

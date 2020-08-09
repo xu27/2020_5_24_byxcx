@@ -4,11 +4,11 @@ apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     signingConfigs {
-        key0 {
-            storeFile file('D:\\android project\\MD5 key\\5_24Byxcx.jks')
-            storePassword 'android'
-            keyAlias = 'key0'
-            keyPassword 'android'
+        r {
+            storeFile file('D:\\android project\\MD5 key\\xcx.jks')
+            storePassword '123def789'
+            keyPassword '123def789'
+            keyAlias 'key_xcx'
         }
     }
     compileSdkVersion 29
@@ -16,8 +16,8 @@ android {
         applicationId "com.example.a2020_5_24_byxcx"
         minSdkVersion 29
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -36,7 +36,7 @@ android {
     }
 }
 greendao {
-    schemaVersion 9 // 版本号+1
+    schemaVersion 10 // 版本号+1
 }
 
 dependencies {
@@ -68,8 +68,9 @@ dependencies {
     implementation 'com.shuyu:gsyVideoPlayer-ex_so:7.0.1'
 }
 
-/*MobSDK {
-    appKey "替换为mob官方申请的appkey"
-    appSecret "替换为mob官方申请的appkey对应的appSecret"
+apply plugin: 'com.mob.sdk'
+MobSDK {
+    appKey "2fbf12b75fe5e"
+    appSecret "cc952829d05ea582fc7331fca0dc6672"
     SMSSDK {}
-}*/
+}

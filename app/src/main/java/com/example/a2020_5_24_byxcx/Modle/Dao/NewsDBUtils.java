@@ -134,9 +134,9 @@ public class NewsDBUtils {
      *
      * @return
      */
-    public List<NewsModle> queryNewsModleByQueryBuilder(long id) {
+    public List<NewsModle> queryNewsModleByQueryBuilder(String pid) {
         QueryBuilder<NewsModle> queryBuilder = mManager.getDaoSession().queryBuilder(NewsModle.class);
-        return queryBuilder.where(NewsModleDao.Properties.Id.eq(id)).list();
+        return queryBuilder.where(NewsModleDao.Properties.Pid.eq(pid)).list();
     }
 
     public void close(){

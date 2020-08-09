@@ -84,6 +84,9 @@ public class MainActivity extends BaseActivity implements My_2020_5_24Byxcx.Main
         islogin();
         register();
         setService();
+        getPermission(Manifest.permission.VIBRATE, Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.ACCESS_WIFI_STATE, Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
 
     private void setService() {
@@ -92,13 +95,13 @@ public class MainActivity extends BaseActivity implements My_2020_5_24Byxcx.Main
 
     private void register() {
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
+        /*intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
         intentFilter.addAction(Intent.ACTION_SHUTDOWN);
         //亮屏
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         //息屏
-        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
-        intentFilter.addAction("location.reportsucc");
+        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);*/
+        intentFilter.addAction("loveNews.MSG");
         this.registerReceiver(msgReceiver, intentFilter);
     }
 

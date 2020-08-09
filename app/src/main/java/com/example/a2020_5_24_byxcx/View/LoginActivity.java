@@ -29,11 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.loginitem1:
                 //手机号登陆
-                startActivity(new Intent(this,Login1Activity.class));
+                startActivity(new Intent(this, Login2Activity.class));
                 break;
             case R.id.loginitem2:
                 //注册
-                startActivity(new Intent(this,Login2Activity.class));
+                startActivity(new Intent(this, Login1Activity.class));
                 break;
             case R.id.loginitem3:
                 break;

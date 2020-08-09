@@ -17,7 +17,7 @@ public class BaseService extends Service {
     /**
      * service执行间隔时间（毫秒）
      */
-    public long IntervalMillis = 1000*60;
+    public long IntervalMillis = 1000 * 60 * 10;
     /**
      * 线程
      **/

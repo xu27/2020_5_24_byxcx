@@ -25,12 +25,14 @@ import android.widget.Toast;
 
 import com.example.a2020_5_24_byxcx.Base.Collection_Dialog;
 import com.example.a2020_5_24_byxcx.Base.DialogOnClickListener;
+import com.example.a2020_5_24_byxcx.Base.LoginDialog;
 import com.example.a2020_5_24_byxcx.Modle.Adapter.CollectionAdapter;
 import com.example.a2020_5_24_byxcx.Modle.Adapter.MyRecyclerViewDivider;
 import com.example.a2020_5_24_byxcx.Modle.Dao.NewsDBUtils;
 import com.example.a2020_5_24_byxcx.Modle.Dao.NewsModle;
 import com.example.a2020_5_24_byxcx.R;
 import com.example.xcxlibrary.BaseActivity;
+import com.example.xcxlibrary.Util.SharePrenceUtil;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,7 +67,12 @@ public class CollectionActivity extends BaseActivity {
         addDisposable(Observable.create(new ObservableOnSubscribe<List<NewsModle>>() {
             @Override
             public void subscribe(ObservableEmitter<List<NewsModle>> emitter) throws Exception {
-                emitter.onNext(dbUtils.queryAllNewsModle());
+                if (SharePrenceUtil.getInt(CollectionActivity.this, "login") == 1) {
+                    String pid = SharePrenceUtil.getString(CollectionActivity.this, "Pid");
+                    emitter.onNext(dbUtils.queryNewsModleByQueryBuilder(pid));
+                } else {
+                    emitter.onError(new Throwable("未登陆"));
+                }
             }
         }).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io())
                 .subscribe(new Consumer<List<NewsModle>>() {
@@ -119,6 +126,7 @@ public class CollectionActivity extends BaseActivity {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         Log.e(TAG, "accept: ", throwable);
+                        new LoginDialog(CollectionActivity.this).show();
                     }
                 }));
     }

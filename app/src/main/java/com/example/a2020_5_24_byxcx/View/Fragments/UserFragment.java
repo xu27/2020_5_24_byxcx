@@ -27,10 +27,12 @@ import com.example.a2020_5_24_byxcx.Base.Header_imgDialog;
 import com.example.a2020_5_24_byxcx.Modle.Dao.CacheDBUtils;
 import com.example.a2020_5_24_byxcx.R;
 import com.example.a2020_5_24_byxcx.View.CollectionActivity;
+import com.example.a2020_5_24_byxcx.View.LoginActivity;
 import com.example.xcxlibrary.BaseFragment;
 import com.example.xcxlibrary.Util.AlbumUtil;
 import com.example.xcxlibrary.Util.FileCacheUtils;
 import com.example.xcxlibrary.Util.NetUtil;
+import com.example.xcxlibrary.Util.SharePrenceUtil;
 import com.google.android.material.navigation.NavigationView;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
@@ -76,20 +78,22 @@ public class UserFragment extends Fragment {
     }
 
     private void init() {
-        View headview = head.getHeaderView(0);
-        head_img = headview.findViewById(R.id.user_header_img);
-        try {
-            String path = getActivity().getExternalFilesDir("xcx").getPath();
-            String fileName = "user_head";
-            File file = new File(path, fileName);
-            if (file.exists()) {
-                Bitmap bitmap = AlbumUtil.rotateBitmap(AlbumUtil.getBitmap(file),AlbumUtil.getRotateDegree(file.getPath()));
-                Bitmap round = AlbumUtil.toRoundBitmap(bitmap);
-                head_img.setImageBitmap(round);
-            }
+        if (SharePrenceUtil.getInt(getContext(), "login") == 1) {
+            View headview = head.getHeaderView(0);
+            head_img = headview.findViewById(R.id.user_header_img);
+            try {
+                String path = getActivity().getExternalFilesDir("xcx").getPath();
+                String fileName = "user_head" + SharePrenceUtil.getString(getContext(), "Pid");
+                File file = new File(path, fileName);
+                if (file.exists()) {
+                    Bitmap bitmap = AlbumUtil.rotateBitmap(AlbumUtil.getBitmap(file), AlbumUtil.getRotateDegree(file.getPath()));
+                    Bitmap round = AlbumUtil.toRoundBitmap(bitmap);
+                    head_img.setImageBitmap(round);
+                }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -114,6 +118,14 @@ public class UserFragment extends Fragment {
                         boolean b = utils.deleteAll();
                         Log.d(TAG, "onNavigationItemSelected: " + b);
                         break;
+                    case R.id.LogOff_app:
+                        if (SharePrenceUtil.getInt(getContext(), "login") == 1) {
+                            SharePrenceUtil.saveInt(getContext(), "login", 0);
+                            Toast.makeText(getContext(), "注销成功", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getContext(), "注销失败，你还没登陆哦", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
                 }
                 return true;
             }
@@ -121,7 +133,11 @@ public class UserFragment extends Fragment {
         head_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialog();
+                if (SharePrenceUtil.getInt(getContext(), "login") == 1) {
+                    openDialog();
+                } else {
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                }
             }
         });
     }
@@ -194,7 +210,7 @@ public class UserFragment extends Fragment {
                     setHead(imgPath);
                 }*/
                 String userhead_path = getActivity().getExternalFilesDir("xcx").getPath();
-                File file = new File(userhead_path, "user_head");
+                File file = new File(userhead_path, "user_head" + SharePrenceUtil.getString(getContext(), "Pid"));
                 setHeadbyFile(file);
                 break;
             default:
@@ -242,7 +258,7 @@ public class UserFragment extends Fragment {
                 Bitmap round = AlbumUtil.toRoundBitmap(bitmap);
                 try {
                     String path = getActivity().getExternalFilesDir("xcx").getPath();
-                    File file = new File(path, "user_head");
+                    File file = new File(path, "user_head" + SharePrenceUtil.getString(getContext(), "Pid"));
                     round.compress(Bitmap.CompressFormat.JPEG, 100, new FileOutputStream(file));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -264,7 +280,7 @@ public class UserFragment extends Fragment {
         head_img.setImageBitmap(round);
         try {
             String userhead_path = getActivity().getExternalFilesDir("xcx").getPath();
-            File file = new File(userhead_path, "user_head");
+            File file = new File(userhead_path, "user_head" + SharePrenceUtil.getString(getContext(), "Pid"));
             round.compress(Bitmap.CompressFormat.JPEG, 100, new FileOutputStream(file));
         } catch (FileNotFoundException e) {
             e.printStackTrace();

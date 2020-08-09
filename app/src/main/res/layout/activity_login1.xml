@@ -16,7 +16,7 @@
 
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/main_toolbar"
+            android:id="@+id/login1_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white_color"
@@ -63,26 +63,24 @@
                 android:id="@+id/login_get_yanzheng"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/no_color2"
                 android:gravity="center"
                 android:text="获取验证码"
-                android:textColor="@color/white_color"
+                android:background="@drawable/yanzhengma_but"
+                android:textColor="@color/text_color"
                 app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textInputLayout"
-                app:layout_constraintVertical_bias="0.555" />
-
+                app:layout_constraintEnd_toEndOf="@+id/login1_CheckSeekbar"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayout" />
 
             <Button
                 android:id="@+id/login1_but"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:padding="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="10dp"
-                android:text="登陆"
+                android:padding="10dp"
+                android:text="注册 "
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,15 +107,31 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
+                android:id="@+id/textInputLayout3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/login_get_yanzheng"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+
+                <EditText
+                    android:id="@+id/login1_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/login1_CheckSeekbar"
+                app:layout_constraintTop_toBottomOf="@+id/login1_password2">
 
                 <EditText
                     android:id="@+id/login1_yanzheng"
@@ -132,13 +146,56 @@
                 android:id="@+id/login1_CheckSeekbar"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:visibility="invisible"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="10dp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+            <EditText
+                android:id="@+id/login1_password2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="请确认密码"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+            <ImageView
+                android:id="@+id/login1_phone_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_is_ok2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayout2" />
+
+            <ImageView
+                android:id="@+id/login1_password_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_is_ok2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/textInputLayout3"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayout3" />
+
+            <ImageView
+                android:id="@+id/login1_password2_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_is_ok2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/login1_password2"
+                app:layout_constraintEnd_toEndOf="@+id/login1_password2"
+                app:layout_constraintTop_toTopOf="@+id/login1_password2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -57,8 +57,8 @@ public class TestService extends BaseService {
                     @Override
                     public void accept(Base_Bean base_bean) throws Exception {
                         Intent intent = new Intent();
-                        intent.putExtra("key",base_bean.getItemList().get(0));
-                        intent.setAction("location.reportsucc");
+                        intent.putExtra("key", base_bean.getItemList().get(0));
+                        intent.setAction("loveNews.MSG");
                         sendBroadcast(intent);
                     }
                 }, new Consumer<Throwable>() {

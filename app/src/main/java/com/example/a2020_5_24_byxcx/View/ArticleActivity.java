@@ -160,14 +160,15 @@ public class ArticleActivity extends BaseActivity {
             public void onClick(View view) {
                 //收藏
                 if (SharePrenceUtil.getInt(ArticleActivity.this,"login") == 1) {
+                    String pid = SharePrenceUtil.getString(ArticleActivity.this, "Pid");
                     if (newsDBUtils.queryNewsModleById(id) != null) {
-                        if (newsDBUtils.deleteNewsModle(new NewsModle(id, url, imgUrl, title, source))) {
+                        if (newsDBUtils.deleteNewsModle(new NewsModle(id, pid, url, imgUrl, title, source))) {
                             i2.setImageResource(R.drawable.ic_favor_1);
                         } else {
                             showMsg("取消收藏失败");
                         }
                     } else {
-                        if (newsDBUtils.insertNews(new NewsModle(id, url, imgUrl, title, source))) {
+                        if (newsDBUtils.insertNews(new NewsModle(id, pid, url, imgUrl, title, source))) {
                             i2.setImageResource(R.drawable.ic_favor_fill);
                         } else {
                             showMsg("收藏失败");
@@ -201,12 +202,13 @@ public class ArticleActivity extends BaseActivity {
         builder.apply(options).into(titleImg);
         toolbar.setTitle(source);
         viewTitle.setText(title);
-        //腾讯初始化
-        //mTencent = Tencent.createInstance(APP_ID, ArticleActivity.this.getApplicationContext());
         //
+
         newsDBUtils = new NewsDBUtils(this);
-        if (newsDBUtils.queryNewsModleById(id) != null)
-            i2.setImageResource(R.drawable.ic_favor_fill);
+        if (SharePrenceUtil.getInt(ArticleActivity.this, "login") == 1) {
+            if (newsDBUtils.queryNewsModleById(id) != null)
+                i2.setImageResource(R.drawable.ic_favor_fill);
+        }
     }
 
     @Override
